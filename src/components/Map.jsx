@@ -1,5 +1,6 @@
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
+import icon from "/images/icon-location.svg"
 
 export default function Map({ lat, lon }) {
   function ChangeView({ center }) {
@@ -8,9 +9,9 @@ export default function Map({ lat, lon }) {
     return null;
   }
   const newIcon = new Icon({
-    iconUrl: "/public/images/icon-location.svg",
+    iconUrl: icon,
     iconSize: [25, 30],
-    iconRetinaUrl: "/public/images/icon-location.svg",
+    iconRetinaUrl: icon,
   });
   return (
     <>
