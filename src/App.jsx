@@ -22,19 +22,19 @@ function App() {
     if (!address.ip) {
       async function getIp() {
         try {
-          const request = await axios.get("http://ip-api.com/json");
+          const request = await axios.get("https://ipapi.co/json/");
           const data = request.data;
 
           setAdress({
-            isp: data.isp,
-            lat: data.lat,
-            lon: data.lon,
-            ip: data.query,
-            timezone: data.timezone,
-            location: `${data.city}, ${data.regionName}, ${data.country}`,
+            isp: data.org,
+            lat: data.latitude,
+            lon: data.longitude,
+            ip: data.ip,
+            timezone: data.utc_offset,
+            location: `${data.city}, ${data.region}, ${data.country_name}`,
           });
         } catch (error) {
-          return toast.error(error.message)
+          return toast.error(error.reason)
         }
       }
       getIp();

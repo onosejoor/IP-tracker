@@ -13,21 +13,22 @@ const Header = () => {
   async function getIp() {
     try {
       setLoading(true);
-      const request = await axios.get(`http://ip-api.com/json/${text}`);
+      const request = await axios.get(`https://ipapi.co/${text}/json/`);
       const data = await request.data;
+      
 
-      if (data.status !== "success") {
+      if (data.error) {
         setLoading(false);
-        return toast.error(`${data.message}: ${data.query}`);
+        return toast.error(`${data.reason}: ${data.ip}`);
       }
 
       setAdress({
-        isp: data.isp,
-        lat: data.lat,
-        lon: data.lon,
-        ip: data.query,
-        timezone: data.timezone,
-        location: `${data.city}, ${data.regionName}, ${data.country}`,
+        isp: data.org,
+        lat: data.latitude,
+        lon: data.longitude,
+        ip: data.ip,
+        timezone: data.utc_offset,
+        location: `${data.city}, ${data.region}, ${data.country_name}`,
       });
       setLoading(false);
     } catch (error) {
