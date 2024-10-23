@@ -10,7 +10,7 @@ const IpContent = () => {
       <div className="ip-content-container">
         <Content content={ip} />
         <Content head={"location"} content={location} />
-        <Content head={"timezone"} content={timezone} />
+        <Content head={"timezone"} content={"UTC "+timezone} />
         <Content head={"isp"} content={isp} />
       </div>
     </>
