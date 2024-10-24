@@ -39,6 +39,7 @@ main {
   background-image: url(/images/pattern-bg-desktop.png);
   /* background-repeat: no-repeat; */
   gap: 30px;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -130,6 +131,13 @@ main {
   to {
     transform: rotate(1turn);
   }
+}
+.seeBtn{
+  color: var(--Dark-Gray);
+  background-color: transparent;
+  border: none;
+}.seeBtn:hover{
+  color: black;
 }
 
 @media (max-width: 600px) {
